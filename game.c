@@ -9,11 +9,11 @@ int main()
     char palavraSecreta[6];
     char palavras[1000][6];
 
-    FILE *file = fopen("C:\\users\\pamel\\OneDrive\\Documentos\\GuessWord\\palavras.txt", "r");
+    FILE *file = fopen("C:\\users\\viana\\OneDrive\\Área de Trabalho\\GuessWord\\palavras.txt", "r");
     for(int i = 0; i < 1000; i++){
-        fscanf(file, "%5s", palavras[i]);
+        fscanf(file, "%s", palavras[i]);
     }
-
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     fclose(file);
     srand(time(NULL));
     int randomIndex = rand() % 1000;
