@@ -5,7 +5,7 @@
 #include <locale.h>
 int main()
 {
-    setlocale(LC_ALL, "Portuguese");
+    setlocale(LC_ALL, "Portuguese_Brazil");
 
     char tentativa[6];
     char palavraSecreta[6];
@@ -29,7 +29,7 @@ int main()
 
         if (strcmp(palavraSecreta, tentativa) == 0)
         {
-            printf("VOCÃŠ ACERTOU!!\n");
+            printf("VOCÊ ACERTOU!!\n");
             return 0;
         }
         else
@@ -43,7 +43,7 @@ int main()
             }
         }
     }
-    printf("Voce nÃ£o conseguiu, a palavra secreta Ã©: %s", palavraSecreta);
+    printf("Você não conseguiu, a palavra secreta é: %s", palavraSecreta);
 
     return 0;
 }
