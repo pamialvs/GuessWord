@@ -5,13 +5,16 @@
 #include <locale.h>
 int main()
 {
+    setlocale(LC_ALL, "Portuguese");
+
     char tentativa[6];
     char palavraSecreta[6];
     char palavras[1000][6];
 
     FILE *file = fopen("C:\\users\\pamel\\OneDrive\\Documentos\\GuessWord\\palavras.txt", "r");
-    for(int i = 0; i < 1000; i++){
-        fscanf(file, "%5s", palavras[i]);
+    for (int i = 0; i < 1000; i++)
+    {
+        fscanf(file, "%s", palavras[i]);
     }
 
     fclose(file);
@@ -19,22 +22,28 @@ int main()
     int randomIndex = rand() % 1000;
     strcpy(palavraSecreta, palavras[randomIndex]);
 
-    for (int j = 0; j < 6; j++){
+    for (int j = 0; j < 6; j++)
+    {
         printf("====== Digite uma palavra: ");
         scanf("%s", tentativa);
 
-        if (strcmp(palavraSecreta, tentativa) == 0){
-            printf("VOCE ACERTOU!!\n");
+        if (strcmp(palavraSecreta, tentativa) == 0)
+        {
+            printf("VOCÊ ACERTOU!!\n");
             return 0;
-        }else{
-            for (int i = 0; i < 5; i++){
-                if (palavraSecreta[i] == tentativa[i]){
+        }
+        else
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (palavraSecreta[i] == tentativa[i])
+                {
                     printf("letra %c\nno indice %d\n", tentativa[i], i);
                 }
             }
         }
     }
-    printf("Você não conseguiu, a palavra secreta é: %s", palavraSecreta);
+    printf("Voce não conseguiu, a palavra secreta é: %s", palavraSecreta);
 
     return 0;
 }

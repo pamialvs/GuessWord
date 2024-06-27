@@ -71,7 +71,6 @@ sendo
 posse
 brado
 estar
-xibiu
 crivo
 prole
 ainda
@@ -998,3 +997,4 @@ digna
 puído
 pátio
 cacto
+arara
