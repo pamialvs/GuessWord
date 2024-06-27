@@ -11,11 +11,11 @@ int main()
     char palavraSecreta[6];
     char palavras[1000][6];
 
-    FILE *file = fopen("C:\\Users\\viana\OneDrive\\Área de Trabalho\\GuessWord\\palavras", "r");
+    FILE *file = fopen("C:\\Users\\viana\OneDrive\\Área de Trabalho\\GuessWord\\palavras.txt", "r");
     for(int i = 0; i < 1000; i++){
         fscanf(file, "%s", palavras[i]);
     }
-    
+    //testando se minha alteracao aparece pra pamela
     if (file == NULL) {
     printf("Erro ao abrir o arquivo: %s\n", strerror(errno));
     }
