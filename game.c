@@ -11,17 +11,15 @@ int main()
     char palavraSecreta[6];
     char palavras[1000][6];
 
-<<<<<<< HEAD
-    FILE *file = fopen("C:\\users\\viana\\OneDrive\\Área de Trabalho\\GuessWord\\palavras.txt", "r");
+    FILE *file = fopen("C:\\Users\\viana\OneDrive\\Área de Trabalho\\GuessWord\\palavras", "r");
     for(int i = 0; i < 1000; i++){
-=======
-    FILE *file = fopen("C:\\users\\pamel\\OneDrive\\Documentos\\GuessWord\\palavras.txt", "r");
-    for (int i = 0; i < 1000; i++)
-    {
->>>>>>> 3a7086795e3a6096a10e6104eca68b2b764ede7b
         fscanf(file, "%s", palavras[i]);
     }
-//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    
+    if (file == NULL) {
+    printf("Erro ao abrir o arquivo: %s\n", strerror(errno));
+    }
+
     fclose(file);
     srand(time(NULL));
     int randomIndex = rand() % 1000;
