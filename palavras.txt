@@ -71,7 +71,10 @@ sendo
 posse
 brado
 estar
+<<<<<<< HEAD
 arara
+=======
+>>>>>>> 3a7086795e3a6096a10e6104eca68b2b764ede7b
 crivo
 prole
 ainda
@@ -998,3 +1001,4 @@ digna
 puído
 pátio
 cacto
+arara
