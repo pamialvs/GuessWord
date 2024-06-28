@@ -6,12 +6,12 @@
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
-
+//TENTANDO EDITAR O ARQUIVO
     char tentativa[6];
     char palavraSecreta[6];
     char palavras[1000][6];
 
-    FILE *file = fopen("C:\\Users\\viana\OneDrive\\Área de Trabalho\\GuessWord\\palavras", "r");
+    FILE *file = fopen("C:\\Users\\viana\OneDrive\\Área de Trabalho\\GuessWord\\palavras.txt", "r");
     for(int i = 0; i < 1000; i++){
         fscanf(file, "%s", palavras[i]);
     }
