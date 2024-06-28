@@ -5,19 +5,16 @@
 #include <locale.h>
 int main()
 {
-    setlocale(LC_ALL, "Portuguese");
+    setlocale(LC_ALL, "Portuguese_Brazil");
 
     char tentativa[6];
     char palavraSecreta[6];
     char palavras[1000][6];
 
-    FILE *file = fopen("C:\\Users\\viana\OneDrive\\Área de Trabalho\\GuessWord\\palavras.txt", "r");
-    for(int i = 0; i < 1000; i++){
+    FILE *file = fopen("C:\\users\\pamel\\OneDrive\\Documentos\\GuessWord\\palavras.txt", "r");
+    for (int i = 0; i < 1000; i++)
+    {
         fscanf(file, "%s", palavras[i]);
-    }
-    //testando se minha alteracao aparece pra pamela
-    if (file == NULL) {
-    printf("Erro ao abrir o arquivo: %s\n", strerror(errno));
     }
 
     fclose(file);
@@ -32,7 +29,7 @@ int main()
 
         if (strcmp(palavraSecreta, tentativa) == 0)
         {
-            printf("VOCÊ ACERTOU!!\n");
+            printf("VOC� ACERTOU!!\n");
             return 0;
         }
         else
@@ -46,7 +43,7 @@ int main()
             }
         }
     }
-    printf("Voce não conseguiu, a palavra secreta é: %s", palavraSecreta);
+    printf("Voc� n�o conseguiu, a palavra secreta �: %s", palavraSecreta);
 
     return 0;
 }
