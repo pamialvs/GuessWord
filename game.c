@@ -29,7 +29,7 @@ int main()
 
         if (strcmp(palavraSecreta, tentativa) == 0)
         {
-            printf("VOCÊ ACERTOU!!\n");
+            printf("VOCï¿½ ACERTOU!!\n");
             return 0;
         }
         else
@@ -43,7 +43,7 @@ int main()
             }
         }
     }
-    printf("Você não conseguiu, a palavra secreta é: %s", palavraSecreta);
+    printf("Vocï¿½ nï¿½o conseguiu, a palavra secreta ï¿½: %s", palavraSecreta);
 
     return 0;
 }
