@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
+
 int main()
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
@@ -11,9 +12,9 @@ int main()
     char palavraSecreta[6];
     char palavras[1000][6];
 
+    FILE *file = fopen("palavras.txt", "r");
     
 
-    FILE *file = fopen("palavras.txt", "r");
     for (int i = 0; i < 1000; i++)
     {
         fscanf(file, "%s", palavras[i]);
@@ -29,28 +30,46 @@ int main()
     int randomIndex = rand() % 1000;
     strcpy(palavraSecreta, palavras[randomIndex]);
 
+    printf("=== BEM VINDO AO GUESSWORD! ===\n");
     for (int j = 0; j < 6; j++)
     {
-        printf("====== Digite uma palavra: ");
+        printf("\n--------Digite uma palavra: ");
         scanf("%s", tentativa);
-
+        printf("\n");
         if (strcmp(palavraSecreta, tentativa) == 0)
         {
-            printf("VOCï¿½ ACERTOU!!\n");
+            printf("VOCÊ ACERTOU!!\n");
             return 0;
         }
+
+        int TAM = strlen(tentativa);
+        // Verificar se a palavra tem 5 letras
+        if(TAM != 5){
+                    printf("TENTATIVA INVÁLIDA, INSIRA UMA PALAVRA DE >CINCO< LETRAS.\n\n");
+                    j--;
+        }
+        
         else
         {
+            // Verificar letras corretas na posição errada
+            int acertou = 0;
             for (int i = 0; i < 5; i++)
-            {
+            {   
+                
                 if (palavraSecreta[i] == tentativa[i])
                 {
-                    printf("letra %c\nno indice %d\n", tentativa[i], i);
+                    printf("Letra %c no índice %d: CORRETA\n", tentativa[i], i);
+                    acertou = 1;
+                }
+                else if (strchr(palavraSecreta, tentativa[i]) != NULL)
+                {
+                    printf("Letra %c no índice errado.\n", tentativa[i]);
+                    acertou = 1;
                 }
             }
         }
     }
-    printf("Vocï¿½ nï¿½o conseguiu, a palavra secreta ï¿½: %s", palavraSecreta);
+    printf("Você não conseguiu, a palavra secreta é: %s\n", palavraSecreta);
 
     return 0;
 }
