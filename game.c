@@ -47,7 +47,7 @@ int main()
             {
                 if (palavraSecreta[i] == tentativa[i])
                 {
-                    printf("Letra %c no índice %d: CORRETA\n", tentativa[i], i);
+                    printf("Letra %c no índice %d\n", tentativa[i], i);
                     acertou = 1;
                 }
                 else if (strchr(palavraSecreta, tentativa[i]) != NULL)
@@ -55,6 +55,11 @@ int main()
                     printf("Letra %c no índice errado.\n", tentativa[i]);
                     acertou = 1;
                 }
+            }
+
+            if (!acertou)
+            {
+                printf("Nenhuma letra está correta.\n");
             }
         }
     }
