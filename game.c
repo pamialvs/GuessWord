@@ -11,10 +11,17 @@ int main()
     char palavraSecreta[6];
     char palavras[1000][6];
 
-    FILE *file = fopen("C:\\users\\pamel\\OneDrive\\Documentos\\GuessWord\\palavras.txt", "r");
+    
+
+    FILE *file = fopen("palavras.txt", "r");
     for (int i = 0; i < 1000; i++)
     {
         fscanf(file, "%s", palavras[i]);
+    }
+    
+    if (file == NULL) {
+    printf("Erro ao abrir o arquivo: %s\n", strerror(errno));
+
     }
 
     fclose(file);
