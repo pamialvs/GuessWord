@@ -12,25 +12,28 @@ int main()
     char palavraSecreta[6];
     char palavras[1000][6];
 
+    // Ler as palavras do arquivo
     FILE *file = fopen("palavras.txt", "r");
-    
 
     for (int i = 0; i < 1000; i++)
     {
         fscanf(file, "%s", palavras[i]);
     }
-    
+    //verificando se o arquivo foi lido
     if (file == NULL) {
     printf("Erro ao abrir o arquivo: %s\n", strerror(errno));
-
     }
 
     fclose(file);
+    
+    // Sortear uma palavra aleatória do arquivo
     srand(time(NULL));
     int randomIndex = rand() % 1000;
     strcpy(palavraSecreta, palavras[randomIndex]);
 
-    printf("=== BEM VINDO AO GUESSWORD! ===\n");
+    printf("=== BEM VINDO AO GUESSWORD! ===\n   tecle a opção desejada:\n      1. Jogar\n      2. Ranking \n      3. Sair");
+
+
     for (int j = 0; j < 6; j++)
     {
         printf("\n--------Digite uma palavra: ");
