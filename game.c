@@ -13,24 +13,21 @@ int main()
     char palavras[1000][6];
 
     FILE *file = fopen("palavras.txt", "r");
-<<<<<<< HEAD
+
     if (file == NULL)
     {
         printf("Erro ao abrir o arquivo palavras.txt.\n");
         return 1;
     }
-=======
-    
->>>>>>> b7460347ee0288de0c51017c8fce1790238ec3bf
 
     for (int i = 0; i < 1000; i++)
     {
         fscanf(file, "%s", palavras[i]);
     }
-    
-    if (file == NULL) {
-    printf("Erro ao abrir o arquivo: %s\n", strerror(errno));
 
+    if (file == NULL)
+    {
+        printf("Erro ao abrir o arquivo: %s\n", strerror(errno));
     }
 
     fclose(file);
@@ -43,17 +40,13 @@ int main()
     {
         printf("\n--------Digite uma palavra: ");
         scanf("%s", tentativa);
-<<<<<<< HEAD
         if (strlen(tentativa) != 0)
         {
             printf("Erro: a palavra deve ter 5 letras. Tente novamente.\n");
-            j--; 
+            j--;
             continue;
         }
 
-=======
-        printf("\n");
->>>>>>> b7460347ee0288de0c51017c8fce1790238ec3bf
         if (strcmp(palavraSecreta, tentativa) == 0)
         {
             printf("VOCÊ ACERTOU!!\n");
@@ -62,17 +55,18 @@ int main()
 
         int TAM = strlen(tentativa);
         // Verificar se a palavra tem 5 letras
-        if(TAM != 5){
-                    printf("TENTATIVA INVÁLIDA, INSIRA UMA PALAVRA DE >CINCO< LETRAS.\n\n");
-                    j--;
+        if (TAM != 5)
+        {
+            printf("TENTATIVA INVÁLIDA, INSIRA UMA PALAVRA DE >CINCO< LETRAS.\n\n");
+            j--;
         }
-        
+
         else
         {
             int acertou = 0;
             for (int i = 0; i < 5; i++)
-            {   
-                
+            {
+
                 if (palavraSecreta[i] == tentativa[i])
                 {
                     printf("Letra %c no índice %d: CORRETO\n", tentativa[i], i);
