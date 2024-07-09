@@ -45,6 +45,7 @@ void limparTela()
 int main()
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
+    double total_time_used = 0.0;
 
     char tentativa[TAMANHO_PALAVRA];
     char palavraSecreta[TAMANHO_PALAVRA];
@@ -54,6 +55,8 @@ int main()
     Usuario ranking[MAX_USUARIOS];
     int numUsuarios = 0;
     char voltar;
+
+    clock_t start, end;
 
     // Ler as palavras do arquivo
     FILE *file = fopen("palavras.txt", "r");
@@ -104,6 +107,8 @@ int main()
             printf("%s\n", nomeUser);
             int pontos = 600;
 
+            start = clock(); // Inicia contagem de tempo do jogo
+
             for (int j = 0; j < 6; j++)
             {
                 printf("\n--------Digite uma palavra: ");
@@ -113,7 +118,10 @@ int main()
                 if (strcmp(palavraSecreta, tentativa) == 0)
                 {
                     printf("VOCÊ ACERTOU!!\n");
-                    printf("Deseja voltar ao menu inicial? (s-sim, n-não): ");
+                    end = clock();
+                    total_time_used += ((double) (end - start)) / CLOCKS_PER_SEC;
+                    printf("Tempo de jogo: %.2f segundos\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+                    printf("Deseja voltar ao menu inicial? (s-sim, n-nÃ£o): ");
                     scanf(" %c", &voltar);
 
                     // Adicionar ao ranking
@@ -154,7 +162,7 @@ int main()
                 }
                 else
                 {
-                    // Verificar letras corretas na posição errada
+                    // Verificar letras corretas na posicaoo errada
                     int acertou = 0;
                     for (int i = 0; i < 5; i++)
                     {
@@ -180,7 +188,10 @@ int main()
             if (strcmp(palavraSecreta, tentativa) != 0)
             {
                 printf("Você não conseguiu, a palavra secreta é: %s\n", palavraSecreta);
-                printf("Deseja voltar ao menu inicial? (s-sim, n-não): ");
+                end = clock();
+                total_time_used += ((double) (end - start)) / CLOCKS_PER_SEC;
+                printf("Tempo de jogo: %.2f segundos\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+                printf("Deseja voltar ao menu inicial? (s-sim, n-nÃ£o): ");
                 scanf(" %c", &voltar);
 
                 if (voltar == 'n')
@@ -197,12 +208,14 @@ int main()
                 printf("%d. %s - %d pontos\n", i + 1, ranking[i].nome, ranking[i].pontuacao);
             }
             printf("\nPressione Enter para voltar ao menu inicial...");
-            while (getchar() != '\n');
+            while (getchar() != '\n')
+                ;
             getchar(); // Aguardar Enter
         }
         else if (opcao == 3)
         {
             printf("Saindo...\n");
+            printf("Tempo total jogado: %.2f segundos\n", total_time_used); // Mostra o tempo total ao sair
             return 0; // Encerrar o programa
         }
     }
