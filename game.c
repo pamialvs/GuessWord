@@ -9,13 +9,13 @@
 #define TAMANHO_PALAVRA 6
 #define MAX_USUARIOS 100
 #define RANKING_FILE "ranking.txt"
-#define RED   "\x1B[31m"
-#define GRN   "\x1B[32m"
-#define YEL   "\x1B[33m"
-#define BLU   "\x1B[34m"
-#define MAG   "\x1B[35m"
-#define CYN   "\x1B[36m"
-#define WHT   "\x1B[37m"
+#define RED "\x1B[31m"
+#define GRN "\x1B[32m"
+#define YEL "\x1B[33m"
+#define BLU "\x1B[34m"
+#define MAG "\x1B[35m"
+#define CYN "\x1B[36m"
+#define WHT "\x1B[37m"
 #define RESET "\x1B[0m"
 
 typedef struct
@@ -129,7 +129,7 @@ int main()
                     end = clock();
                     total_time_used += ((double)(end - start)) / CLOCKS_PER_SEC;
                     printf("Tempo de jogo: %.2f segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
-                    printf("Deseja voltar ao menu inicial? (s-sim, n-n√£o): ");
+                    printf("Deseja voltar ao menu inicial? (s-sim, n-n„o): ");
                     scanf(" %c", &voltar);
 
                     // Adicionar ao ranking
@@ -170,21 +170,28 @@ int main()
                 }
                 else
                 {
-                    // Verificar letras corretas na posicaoo errada
+                    // Verificar letras corretas na posicao errada
                     int acertou = 0;
                     for (int i = 0; i < 5; i++)
+                    //deixando letras coloridas
                     {
                         if (palavraSecreta[i] == tentativa[i])
                         {
-                            printf("Letra %c no Ìndice %d: CORRETA\n", tentativa[i], i);
+                            printf(GRN "|%c" RESET, tentativa[i]);
                             acertou = 1;
                         }
                         else if (strchr(palavraSecreta, tentativa[i]) != NULL)
                         {
-                            printf(GRN "Letra %c no Ìndice errado.\n", tentativa[i], RESET);
+                            printf(YEL "|%c" RESET, tentativa[i]);
                             acertou = 1;
                         }
+                        else
+                        {
+                            printf("|%c", tentativa[i]);
+                        }
                     }
+                    printf("|");
+
                     if (!acertou)
                     {
                         printf("Nenhuma letra est· correta.\n");
@@ -199,7 +206,7 @@ int main()
                 end = clock();
                 total_time_used += ((double)(end - start)) / CLOCKS_PER_SEC;
                 printf("Tempo de jogo: %.2f segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
-                printf("Deseja voltar ao menu inicial? (s-sim, n-n√£o): ");
+                printf("Deseja voltar ao menu inicial? (s-sim, n-n„o): ");
                 scanf(" %c", &voltar);
 
                 if (voltar == 'n')
