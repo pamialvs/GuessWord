@@ -56,10 +56,6 @@ int main()
     int numUsuarios = 0;
     char voltar;
 
-<<<<<<< HEAD
-    // Ler as palavras do arquivo
-    FILE *file = fopen("palavras.txt", "r");
-=======
     clock_t start, end;
 
     // Ler as palavras do arquivo
@@ -69,39 +65,11 @@ int main()
         printf("Erro ao abrir o arquivo: %s\n", strerror(errno));
         return 1;
     }
->>>>>>> 6e2862b3fcdc3f9bbfab6ab8d2f8724070adeb66
 
     for (int i = 0; i < MAX_PALAVRAS; i++)
     {
         fscanf(file, "%s", palavras[i]);
     }
-<<<<<<< HEAD
-    //verificando se o arquivo foi lido
-    if (file == NULL) {
-    printf("Erro ao abrir o arquivo: %s\n", strerror(errno));
-    }
-
-    fclose(file);
-    
-    // Sortear uma palavra aleatï¿½ria do arquivo
-    srand(time(NULL));
-    int randomIndex = rand() % 1000;
-    strcpy(palavraSecreta, palavras[randomIndex]);
-
-    printf("=== BEM VINDO AO GUESSWORD! ===\n     tecle a opção desejada:\n      1. Jogar\n      2. Ranking \n      3. Sair");
-
-
-    for (int j = 0; j < 6; j++)
-    {
-        printf("\n--------Digite uma palavra: ");
-        scanf("%s", tentativa);
-        printf("\n");
-        if (strcmp(palavraSecreta, tentativa) == 0)
-        {
-            printf("VOCÊ ACERTOU!!\n");
-            return 0;
-        }
-=======
     fclose(file);
 
     // Carregar o ranking do arquivo
@@ -110,7 +78,7 @@ int main()
     {
         while (fscanf(file, "%s %d", ranking[numUsuarios].nome, &ranking[numUsuarios].pontuacao) != EOF)
         {
-            numUsuarios++;
+    1        numUsuarios++;1
         }
         fclose(file);
     }
@@ -125,17 +93,16 @@ int main()
 
         printf("\n");
         printf("=== BEM VINDO AO GUESSWORD! ===\n");
-        printf("Tecle a opção desejada:\n");
+        printf("Tecle a opï¿½ï¿½o desejada:\n");
         printf("1. Jogar\n");
         printf("2. Ranking\n");
         printf("3. Sair\n");
         scanf(" %d", &opcao);
         printf("\n");
->>>>>>> 6e2862b3fcdc3f9bbfab6ab8d2f8724070adeb66
 
         if (opcao == 1)
         {
-            printf("Para começar, digite seu usuário: ");
+            printf("Para comeï¿½ar, digite seu usuï¿½rio: ");
             scanf("%s", nomeUser);
             printf("%s\n", nomeUser);
             int pontos = 600;
@@ -150,7 +117,7 @@ int main()
 
                 if (strcmp(palavraSecreta, tentativa) == 0)
                 {
-                    printf("VOCÊ ACERTOU!!\n");
+                    printf("VOCï¿½ ACERTOU!!\n");
                     end = clock();
                     total_time_used += ((double) (end - start)) / CLOCKS_PER_SEC;
                     printf("Tempo de jogo: %.2f segundos\n", ((double) (end - start)) / CLOCKS_PER_SEC);
@@ -190,24 +157,8 @@ int main()
                 // Verificar se a palavra tem 5 letras
                 if (TAM != 5)
                 {
-                    printf("TENTATIVA INVÁLIDA, INSIRA UMA PALAVRA DE >CINCO< LETRAS.\n\n");
+                    printf("TENTATIVA INVï¿½LIDA, INSIRA UMA PALAVRA DE >CINCO< LETRAS.\n\n");
                     j--;
-<<<<<<< HEAD
-        }
-        
-        else
-        {
-            // Verificar letras corretas na posiï¿½ï¿½o errada
-            int acertou = 0;
-            for (int i = 0; i < 5; i++)
-            {   
-                
-                if (palavraSecreta[i] == tentativa[i])
-                {
-                    printf("Letra %c no índice %d: CORRETA\n", tentativa[i], i);
-                    acertou = 1;
-=======
->>>>>>> 6e2862b3fcdc3f9bbfab6ab8d2f8724070adeb66
                 }
                 else
                 {
@@ -217,30 +168,26 @@ int main()
                     {
                         if (palavraSecreta[i] == tentativa[i])
                         {
-                            printf("Letra %c no índice %d: CORRETA\n", tentativa[i], i);
+                            printf("Letra %c no ï¿½ndice %d: CORRETA\n", tentativa[i], i);
                             acertou = 1;
                         }
                         else if (strchr(palavraSecreta, tentativa[i]) != NULL)
                         {
-                            printf("Letra %c no índice errado.\n", tentativa[i]);
+                            printf("Letra %c no ï¿½ndice errado.\n", tentativa[i]);
                             acertou = 1;
                         }
                     }
                     if (!acertou)
                     {
-                        printf("Nenhuma letra está correta.\n");
+                        printf("Nenhuma letra estï¿½ correta.\n");
                     }
                     pontos -= 100;
                 }
             }
-<<<<<<< HEAD
-            if(!acertou){
-                printf("Nenhuma letra está correta.\n");
-=======
 
             if (strcmp(palavraSecreta, tentativa) != 0)
             {
-                printf("Você não conseguiu, a palavra secreta é: %s\n", palavraSecreta);
+                printf("Vocï¿½ nï¿½o conseguiu, a palavra secreta ï¿½: %s\n", palavraSecreta);
                 end = clock();
                 total_time_used += ((double) (end - start)) / CLOCKS_PER_SEC;
                 printf("Tempo de jogo: %.2f segundos\n", ((double) (end - start)) / CLOCKS_PER_SEC);
@@ -251,7 +198,6 @@ int main()
                 {
                     return 0; // Encerrar o programa
                 }
->>>>>>> 6e2862b3fcdc3f9bbfab6ab8d2f8724070adeb66
             }
         }
         else if (opcao == 2)
