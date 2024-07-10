@@ -26,12 +26,12 @@ int main()
 
     fclose(file);
     
-    // Sortear uma palavra aleatória do arquivo
+    // Sortear uma palavra aleatï¿½ria do arquivo
     srand(time(NULL));
     int randomIndex = rand() % 1000;
     strcpy(palavraSecreta, palavras[randomIndex]);
 
-    printf("=== BEM VINDO AO GUESSWORD! ===\n   tecle a opção desejada:\n      1. Jogar\n      2. Ranking \n      3. Sair");
+    printf("=== BEM VINDO AO GUESSWORD! ===\n     tecle a opção desejada:\n      1. Jogar\n      2. Ranking \n      3. Sair");
 
 
     for (int j = 0; j < 6; j++)
@@ -54,7 +54,7 @@ int main()
         
         else
         {
-            // Verificar letras corretas na posição errada
+            // Verificar letras corretas na posiï¿½ï¿½o errada
             int acertou = 0;
             for (int i = 0; i < 5; i++)
             {   
@@ -69,6 +69,9 @@ int main()
                     printf("Letra %c no índice errado.\n", tentativa[i]);
                     acertou = 1;
                 }
+            }
+            if(!acertou){
+                printf("Nenhuma letra está correta.\n");
             }
         }
     }
