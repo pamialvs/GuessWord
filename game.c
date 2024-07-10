@@ -9,6 +9,14 @@
 #define TAMANHO_PALAVRA 6
 #define MAX_USUARIOS 100
 #define RANKING_FILE "ranking.txt"
+#define RED   "\x1B[31m"
+#define GRN   "\x1B[32m"
+#define YEL   "\x1B[33m"
+#define BLU   "\x1B[34m"
+#define MAG   "\x1B[35m"
+#define CYN   "\x1B[36m"
+#define WHT   "\x1B[37m"
+#define RESET "\x1B[0m"
 
 typedef struct
 {
@@ -119,8 +127,8 @@ int main()
                 {
                     printf("VOC  ACERTOU!!\n");
                     end = clock();
-                    total_time_used += ((double) (end - start)) / CLOCKS_PER_SEC;
-                    printf("Tempo de jogo: %.2f segundos\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+                    total_time_used += ((double)(end - start)) / CLOCKS_PER_SEC;
+                    printf("Tempo de jogo: %.2f segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
                     printf("Deseja voltar ao menu inicial? (s-sim, n-n√£o): ");
                     scanf(" %c", &voltar);
 
@@ -173,7 +181,7 @@ int main()
                         }
                         else if (strchr(palavraSecreta, tentativa[i]) != NULL)
                         {
-                            printf("Letra %c no Ìndice errado.\n", tentativa[i]);
+                            printf(GRN "Letra %c no Ìndice errado.\n", tentativa[i], RESET);
                             acertou = 1;
                         }
                     }
@@ -189,8 +197,8 @@ int main()
             {
                 printf("VocÍ n„o conseguiu, a palavra secreta È: %s\n", palavraSecreta);
                 end = clock();
-                total_time_used += ((double) (end - start)) / CLOCKS_PER_SEC;
-                printf("Tempo de jogo: %.2f segundos\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+                total_time_used += ((double)(end - start)) / CLOCKS_PER_SEC;
+                printf("Tempo de jogo: %.2f segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
                 printf("Deseja voltar ao menu inicial? (s-sim, n-n√£o): ");
                 scanf(" %c", &voltar);
 
@@ -216,7 +224,7 @@ int main()
         {
             printf("Saindo...\n");
             printf("Tempo total jogado: %.2f segundos\n", total_time_used); // Mostra o tempo total ao sair
-            return 0; // Encerrar o programa
+            return 0;                                                       // Encerrar o programa
         }
     }
     return 0;
