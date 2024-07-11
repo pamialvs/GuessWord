@@ -16,6 +16,7 @@
 #define MAG "\x1B[35m"
 #define CYN "\x1B[36m"
 #define WHT "\x1B[37m"
+#define PINK "\x1B[35;1m"
 #define RESET "\x1B[0m"
 
 typedef struct
@@ -100,32 +101,40 @@ int main()
         strcpy(palavraSecreta, palavras[randomIndex]);
 
         printf("\n");
-        printf("=== BEM VINDO AO GUESSWORD! ===\n");
+        printf(MAG "=====================================\n");
+        printf(CYN "        BEM VINDO AO GUESSWORD!    \n" RESET);
+        printf(MAG "=====================================\n" RESET);
         printf("Tecle a opção desejada:\n");
         printf("1. Jogar\n");
         printf("2. Ranking\n");
         printf("3. Sair\n");
+        printf("\n");
         scanf(" %d", &opcao);
         printf("\n");
+        printf(MAG "=====================================\n" RESET);
 
         if (opcao == 1)
         {
             printf("Para começar, digite seu usuário: ");
             scanf("%s", nomeUser);
-            printf("%s\n", nomeUser);
+            printf("\n");
+            printf("Seja bem vinda(o)(e)!! %s, Esperamos que se divirta :)\n", nomeUser);
             int pontos = 600;
 
             start = clock(); // Inicia contagem de tempo do jogo
 
             for (int j = 0; j < 6; j++)
             {
-                printf("\n--------Digite uma palavra: ");
+                printf("\n");
+                printf(MAG "=====================================\n" RESET);
+                printf("          Digite uma palavra:        \n");
+                printf(MAG "=====================================\n" RESET);
+                printf("-> ");
                 scanf("%s", tentativa);
                 printf("\n");
-
                 if (strcmp(palavraSecreta, tentativa) == 0)
                 {
-                    printf("VOCÊ ACERTOU!!\n");
+                    printf(GRN "VOCÊ ACERTOU!!\n" RESET);
                     end = clock();
                     total_time_used += ((double)(end - start)) / CLOCKS_PER_SEC;
                     printf("Tempo de jogo: %.2f segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
@@ -165,32 +174,37 @@ int main()
                 // Verificar se a palavra tem 5 letras
                 if (TAM != 5)
                 {
-                    printf("TENTATIVA INVÁLIDA, INSIRA UMA PALAVRA DE >CINCO< LETRAS.\n\n");
+                    printf(RED "TENTATIVA INVÁLIDA, INSIRA UMA PALAVRA DE >CINCO< LETRAS.\n\n" RESET);
                     j--;
                 }
                 else
                 {
                     // Verificar letras corretas na posicao errada
                     int acertou = 0;
+
                     for (int i = 0; i < 5; i++)
-                    //deixando letras coloridas
+                    // deixando letras coloridas
                     {
+
                         if (palavraSecreta[i] == tentativa[i])
                         {
-                            printf(GRN "|%c" RESET, tentativa[i]);
+                            printf("|");
+                            printf(GRN "%c" RESET, tentativa[i]);
                             acertou = 1;
                         }
                         else if (strchr(palavraSecreta, tentativa[i]) != NULL)
                         {
-                            printf(YEL "|%c" RESET, tentativa[i]);
+                            printf("|");
+                            printf(YEL "%c" RESET, tentativa[i]);
                             acertou = 1;
                         }
                         else
                         {
-                            printf("|%c", tentativa[i]);
+                            printf("|");
+                            printf("%c", tentativa[i]);
                         }
                     }
-                    printf("|");
+                    printf("|\n");
 
                     if (!acertou)
                     {
@@ -217,10 +231,13 @@ int main()
         }
         else if (opcao == 2)
         {
-            printf("=== RANKING ===\n");
+            printf("\n");
+            printf(PINK "=====================================\n" RESET);
+            printf(CYN "              RANKING                \n" RESET);
+            printf(PINK "=====================================\n" RESET);
             for (int i = 0; i < numUsuarios; i++)
             {
-                printf("%d. %s - %d pontos\n", i + 1, ranking[i].nome, ranking[i].pontuacao);
+                printf("%dº %s - %d pontos\n", i + 1, ranking[i].nome, ranking[i].pontuacao);
             }
             printf("\nPressione Enter para voltar ao menu inicial...");
             while (getchar() != '\n')
