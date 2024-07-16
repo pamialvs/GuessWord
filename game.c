@@ -54,7 +54,7 @@ void limparTela()
 int main()
 {
     setlocale(LC_ALL, "Portuguese_Brazil");
-    // double total_time_used = 0.0;
+    double total_time_used = 0.0;
     char tentativa[TAMANHO_PALAVRA];
     char palavraSecreta[TAMANHO_PALAVRA];
     char palavras[MAX_PALAVRAS][TAMANHO_PALAVRA];
@@ -63,7 +63,7 @@ int main()
     Usuario ranking[MAX_USUARIOS];
     int numUsuarios = 0;
     char voltar;
-    // clock_t start, end;
+    clock_t start, end;
 
     // Ler as palavras do arquivo
     FILE *file = fopen("palavras.txt", "r");
@@ -122,7 +122,7 @@ int main()
             printf("\t\t\t\t\tSeja bem vinda(o)(e)!" PINK " %s " RESET "esperamos que se divirta :)\n", nomeUser);
             int pontos = 600;
 
-            // start = clock(); // Inicia contagem de tempo do jogo
+            start = clock(); // Inicia contagem de tempo do jogo
 
             for (int j = 0; j < 6; j++)
             {
@@ -218,9 +218,9 @@ int main()
             if (strcmp(palavraSecreta, tentativa) != 0)
             {
                 printf("\t\t\t\t\tVocê não conseguiu, a palavra secreta é: %s\n", palavraSecreta);
-                // end = clock();
-                // total_time_used += ((double)(end - start)) / CLOCKS_PER_SEC;
-                // printf("Tempo de jogo: %.2f segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
+                end = clock();
+                total_time_used += ((double)(end - start)) / CLOCKS_PER_SEC;
+                printf("Tempo de jogo: %.2f segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
                 printf("\t\t\t\t\tDeseja voltar ao menu inicial? (s-sim, n-não): ");
                 scanf(" %c", &voltar);
 
@@ -267,8 +267,8 @@ int main()
         else if (opcao == 4)
         {
             printf("\t\t\t\t\tSaindo...\n");
-            // printf("Tempo total jogado: %.2f segundos\n", total_time_used); // Mostra o tempo total ao sair
-            return 0; // Encerrar o programa
+            printf("Tempo total jogado: %.2f segundos\n", total_time_used); // Mostra o tempo total ao sair
+            return 0;                                                       // Encerrar o programa
         }
     }
     return 0;
