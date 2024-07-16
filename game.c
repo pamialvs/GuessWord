@@ -99,27 +99,27 @@ int main()
         strcpy(palavraSecreta, palavras[randomIndex]);
 
         printf("\n");
-        printf(MAG "=====================================\n");
-        printf(PINK "    BEM VINDA(O)(E) AO GUESSWORD!    \n" RESET);
-        printf(MAG "=====================================\n" RESET);
-        printf("        Tecle a opção desejada:\n");
-        printf("             1. Jogar\n");
-        printf("             2. Ranking\n");
-        printf("             4. Instruções\n");
-        printf("             3. Sair\n");
-        printf(MAG "=====================================\n" RESET);
+        printf(MAG "\t\t\t\t\t=====================================\n");
+        printf(PINK "\t\t\t\t\t    BEM VINDA(O)(E) AO GUESSWORD!    \n" RESET);
+        printf(MAG "\t\t\t\t\t=====================================\n" RESET);
+        printf("\t\t\t\t\t        Tecle a opção desejada:\n");
+        printf("\t\t\t\t\t             1. Jogar\n");
+        printf("\t\t\t\t\t             2. Ranking\n");
+        printf("\t\t\t\t\t             3. Instruções\n");
+        printf("\t\t\t\t\t             4. Sair\n");
+        printf(MAG "\t\t\t\t\t=====================================\n" RESET);
         printf("\n");
-        printf("-> ");
+        printf("\t\t\t\t\t-> ");
         scanf(" %d", &opcao);
         printf("\n");
 
         if (opcao == 1)
         {
             limparTela(); // limpar tela de menu ao entrar no jogo
-            printf("Para começar, digite seu usuário: ");
+            printf("\t\t\t\t\tPara começar, digite seu usuário: ");
             scanf("%s", nomeUser);
             printf("\n");
-            printf("Seja bem vinda(o)(e)!" PINK " %s " RESET "esperamos que se divirta :)\n", nomeUser);
+            printf("\t\t\t\t\tSeja bem vinda(o)(e)!" PINK " %s " RESET "esperamos que se divirta :)\n", nomeUser);
             int pontos = 600;
 
             // start = clock(); // Inicia contagem de tempo do jogo
@@ -135,11 +135,11 @@ int main()
                 printf("\n");
                 if (strcmp(palavraSecreta, tentativa) == 0)
                 {
-                    printf(GRN "VOCÊ ACERTOU!!\n" RESET);
+                    printf(GRN "\t\t\t\t\tVOCÊ ACERTOU!!\n" RESET);
                     // end = clock();
                     // total_time_used += ((double)(end - start)) / CLOCKS_PER_SEC;
                     // printf("Tempo de jogo: %.2f segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
-                    printf("Deseja voltar ao menu inicial? (s-sim, n-não): ");
+                    printf("\t\t\t\t\tDeseja voltar ao menu inicial? (s-sim, n-não): ");
                     scanf(" %c", &voltar);
 
                     // Adicionar ao ranking
@@ -175,7 +175,7 @@ int main()
                 // Verificar se a palavra tem 5 letras
                 if (TAM != 5)
                 {
-                    printf(RED "TENTATIVA INVÁLIDA, INSIRA UMA PALAVRA DE >CINCO< LETRAS.\n\n" RESET);
+                    printf(RED "\t\t\t\t\tTENTATIVA INVÁLIDA, INSIRA UMA PALAVRA DE >CINCO< LETRAS.\n\n" RESET);
                     j--;
                 }
                 else
@@ -217,11 +217,11 @@ int main()
 
             if (strcmp(palavraSecreta, tentativa) != 0)
             {
-                printf("Você não conseguiu, a palavra secreta é: %s\n", palavraSecreta);
+                printf("\t\t\t\t\tVocê não conseguiu, a palavra secreta é: %s\n", palavraSecreta);
                 // end = clock();
                 // total_time_used += ((double)(end - start)) / CLOCKS_PER_SEC;
                 // printf("Tempo de jogo: %.2f segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
-                printf("Deseja voltar ao menu inicial? (s-sim, n-não): ");
+                printf("\t\t\t\t\tDeseja voltar ao menu inicial? (s-sim, n-não): ");
                 scanf(" %c", &voltar);
 
                 if (voltar == 'n')
@@ -235,28 +235,28 @@ int main()
         {
             limparTela(); // Limpar tela ao entrar no ranking
             printf("\n");
-            printf(PINK "=====================================\n" RESET);
-            printf(MAG "              RANKING                \n" RESET);
-            printf(PINK "=====================================\n" RESET);
+            printf(PINK "\t\t\t\t\t=====================================\n" RESET);
+            printf(MAG "\t\t\t\t\t              RANKING                \n" RESET);
+            printf(PINK "\t\t\t\t\t=====================================\n" RESET);
             for (int i = 0; i < numUsuarios; i++)
             {
-                printf("%dÂº %s - %d pontos\n", i + 1, ranking[i].nome, ranking[i].pontuacao);
+                printf("\t\t\t\t\t%dº %s - %d pontos\n", i + 1, ranking[i].nome, ranking[i].pontuacao);
             }
-            printf("\nPressione Enter para voltar ao menu inicial...");
+            printf("\n\t\t\t\t\tPressione Enter para voltar ao menu inicial...");
             while (getchar() != '\n')
                 ;
             getchar(); // Aguardar Enter
         }
-        // instruÃ§Ãµes do jogo/ como jogar?
-        else if (opcao == 4)
+        // instruções do jogo/ como jogar?
+        else if (opcao == 3)
         {
-            limparTela(); // Limpar tela ao entrar nas instruÃ§Ãµes
+            limparTela(); // Limpar tela ao entrar nas instruções
             printf("\n");
-            printf(MAG "=====================================\n" RESET);
-            printf(PINK "               INSTRUÇÕES             \n" RESET);
-            printf(MAG "=====================================\n" RESET);
-            printf("1. O objetivo do jogo é acertar uma palavra secreta.\n");
-            printf("2. Descubra a palavra secreta de 5 letras. Você tem 6 tentativas. As cores nas letras mostram o quão perto você está da solução.\n");
+            printf(MAG "\t\t\t\t\t=====================================\n" RESET);
+            printf(PINK "\t\t\t\t\t               INSTRUÇÕES             \n" RESET);
+            printf(MAG "\t\t\t\t\t=====================================\n" RESET);
+            printf("\n1. O objetivo do jogo é acertar uma palavra secreta.\n");
+            printf("\n2. Descubra a palavra secreta de 5 letras. \nVocê tem 6 tentativas. \nAs cores nas letras mostram o quão perto você está da solução.\n");
             printf("\nLetra branca - Não faz parte da palavra\nLetra amarela - Faz parte da palavra mas está em outra posição\nLetra verde - Faz parte da palavra e está na posição correta\n");
             printf("\n3. Você pode escolher entre jogar, ver o ranking, ver as instruções ou sair.\n");
             printf("\nPressione Enter para voltar ao menu inicial...");
@@ -264,9 +264,9 @@ int main()
                 ;
             getchar(); // Aguardar Enter
         }
-        else if (opcao == 3)
+        else if (opcao == 4)
         {
-            printf("Saindo...\n");
+            printf("\t\t\t\t\tSaindo...\n");
             // printf("Tempo total jogado: %.2f segundos\n", total_time_used); // Mostra o tempo total ao sair
             return 0; // Encerrar o programa
         }
